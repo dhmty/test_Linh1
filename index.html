@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Js</title>
+    <link rel="stylesheet" href="./assets/css/main.css" >
+</head>
+<body>
+    <div>
+        <!-- Tab items -->
+        <div class="tabs">
+          <div class="tab-item active">
+            <i class="tab-icon fas fa-code"></i>
+            Trang Chủ
+          </div>
+          <div class="tab-item">
+            <i class="tab-icon fas fa-cog"></i>
+            Thông Tin Sinh Viên
+          </div>
+          <div class="tab-item">
+            <i class="tab-icon fas fa-plus-circle"></i>
+            Dự Đoán Kết Quả
+          </div>
+          <div class="line"></div>
+          <button class="open-button" id="btn_dn" onclick="openForm()">Đăng Nhập</button>
+          <button class="open-button" id="btn_dx" onclick="returnDN()">Đăng Xuất</button>
+          <label class="id_SV" id="lbl_SV">Mã Sinh Viên : </label>
+          <label class="id_SV" id="id_SV">doan</label>
+        </div>
+        
+        <label class="overlay" id="overlay">
+                    
+        </label>
+
+      <!-- form pop-up -->
+      <div class="form-popup" id="myForm">
+            <form action="/action_page.php" method="POST" class="form" id="form-1">
+                <h3 class="heading">SIGN IN</h3>
+                <p class="desc">❤️ Access to your page ❤️</p>
+            
+                <div class="spacer"></div>
+        
+                <div class="form-group">
+                    <label for="MSV" class="form-label">Mã Sinh Viên</label>
+                    <input id="MSV" name="MSV" type="text" placeholder="VD: N18DCCN001" class="form-control">
+                    <span class="form-message"></span>
+                </div>
+    
+                <div class="form-group">
+                    <label for="password" class="form-label">Mật khẩu</label>
+                    <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                    <span class="form-message"></span>
+                </div>
+            
+                <button class="btn form-submit">Đăng Nhập</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Đóng</button>
+            </form>
+        </div>
+        <!-- form thông báo oke-->
+        <div class="form-popup" id="myForm_tb">
+          <form action="/action_page.php" method="POST" class="form" id="form_tb">
+              <h3 class="heading">THÔNG BÁO</h3>
+              <p class="desc">❤️ Access to your page SUCCESS ❤️</p>
+              <div class="spacer"></div>
+              <button type="button" class="btn cancel tbao" onclick="closeForm_tb()">Đóng</button>
+          </form>
+        </div>
+        <!-- form thông báo lỗi-->
+        <div class="form-popup" id="myForm_tb_error">
+          <form action="/action_page.php" method="POST" class="form" id="form_tb_error">
+              <h3 class="heading">THÔNG BÁO</h3>
+              <p class="desc">❤️ Mã Sinh Viên Hoặc Mật Khẩu Không Chính Xác ❤️</p>
+              <div class="spacer"></div>
+              <button type="button" class="btn cancel tbao" onclick="openForm()">Thử Lại</button>
+          </form>
+        </div>
+
+        <!-- Tab content -->
+        <div class="tab-content">
+          <div class="tab-pane active">
+            <h2>React</h2>
+            <p>React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.</p>
+          </div>
+          <div class="tab-pane">
+            <h2>Angular</h2>
+            <p>Angular is an application design framework and development platform for creating efficient and sophisticated single-page apps.</p>
+          </div>
+          <div class="tab-pane">
+            <h2>Ember</h2>
+            <p>Ember.js is a productive, battle-tested JavaScript framework for building modern web applications. It includes everything you need to build rich UIs that work on any device.</p>
+          </div>
+        </div>
+      </div>
+
+    <script src="./assets/js/validator.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script>
+        Validator({
+            form: '#form-1',
+            errorSelector : '.form-message',
+            rules: [
+                Validator.isRequired('#MSV'),
+                Validator.minLength('#password',6),
+                Validator.isRequired('#password'),
+            ],
+            onsubmit : function(data){
+                //call API
+                var a=data.MSV;
+                var b=data.password;
+                if (a==b) {
+                           document.getElementById("id_SV").innerHTML = a;
+                           openDN()
+                          }
+                else {
+                  document.getElementById("myForm").style.display = "none";
+                  document.getElementById("myForm_tb_error").style.display = "block";
+                }
+                
+            }
+        });
+    </script>
+</body>
+</html>
