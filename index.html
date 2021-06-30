@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Js</title>
     <link rel="stylesheet" href="./assets/css/main.css" >
+    <link rel="stylesheet" href="./assets/css/grid.css" >
 </head>
 <body>
     <div>
@@ -26,7 +27,7 @@
           <button class="open-button" id="btn_dn" onclick="openForm()">Đăng Nhập</button>
           <button class="open-button" id="btn_dx" onclick="returnDN()">Đăng Xuất</button>
           <label class="id_SV" id="lbl_SV">Mã Sinh Viên : </label>
-          <label class="id_SV" id="id_SV">doan</label>
+          <label class="id_SV" id="id_SV"></label>
         </div>
         
         <label class="overlay" id="overlay">
@@ -87,8 +88,40 @@
             <p>Angular is an application design framework and development platform for creating efficient and sophisticated single-page apps.</p>
           </div>
           <div class="tab-pane">
-            <h2>Ember</h2>
-            <p>Ember.js is a productive, battle-tested JavaScript framework for building modern web applications. It includes everything you need to build rich UIs that work on any device.</p>
+            <div class="row">
+              <div class= "col l-4 m-0 c-0 ">
+                <h2>ĐIỂM SINH VIÊN</h2>
+                <table id="myTable" style="width:100%">
+                  <tr class="tieuDe">
+                    <th>Mã Môn Học</th>
+                    <th>Đ.Chuyên Cần</th> 
+                    <th>Đ.Quá Trình</th>
+                    <th>Đ.Học Kỳ</th>
+                    <th></th>
+                  </tr>
+                </table>
+                <div class="themMH">
+                <select id="id_MH">
+                    <option value="" disabled selected>Chọn Mã Môn Học</option> 
+                    <option>CTDLGT</option>
+                    <option>HTTT1</option>
+                    <option>HTTT2</option>
+                    <option>HTTT3</option>
+                    <option>HTTT4</option>
+                    <option>HTTT5</option>
+                </select>
+                  
+                <button class="btn hk" onclick="themMH()">Thêm Môn Học</button>
+                </div>
+                
+                <button class="btn form-submit">Xác Nhận</button>
+    
+              </div>
+              <div class= "col l-8 m-12 c-12 ">
+                <h2>DỰ ĐOÁN SINH VIÊN</h2>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>

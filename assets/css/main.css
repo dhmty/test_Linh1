@@ -96,6 +96,43 @@
     cursor: pointer;
   }
   
+  .diem{
+    width: 100px;
+  }
+  .tieuDe{
+    font-size: 1.4rem;
+    font-weight: 300;
+
+  }
+  .themMH{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  #id_MH{
+     outline: none;
+    margin-top: 12px;
+    padding: 12px 16px;
+    color: #fff;
+    border: none;
+    width: 45%;
+    cursor: pointer;
+    background-color: #c2b436;
+  }
+  .hk {
+    outline: none;
+    margin-top: 12px;
+    padding: 12px 16px;
+    color: #fff;
+    border: none;
+    width: 45%;
+    cursor: pointer;
+    background-color: #c2b436;
+  }
+  .hk:hover{
+    background-color: #e6d114;
+
+  }
   .form-submit:hover {
     background-color: #1ac7b6;
   }
